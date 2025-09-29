@@ -5,6 +5,7 @@ using UnityEngine;
 public class SeekerPos : MonoBehaviour
 {
     public Camera mainCamera;
+    public LayerMask selectableLayers;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class SeekerPos : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit raycastHit))
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, selectableLayers))
             {
                 gameObject.transform.position = raycastHit.point;
             }

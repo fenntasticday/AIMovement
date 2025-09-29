@@ -5,6 +5,7 @@ using UnityEngine;
 public class GoalPos : MonoBehaviour
 {
     public Camera mainCamera;
+    public LayerMask selectableLayers;
     // public LayerMask layerMask;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class GoalPos : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit raycastHit))
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, selectableLayers))
             {
                 gameObject.transform.position = raycastHit.point;
             }
