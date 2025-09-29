@@ -8,9 +8,14 @@ public class Grid : MonoBehaviour {
 	public Vector2 gridWorldSize;
 	public float nodeRadius;
 	Node[,] grid;
+	public List<Node> waypoints;
+
+	// public GameObject waypointObj;
 
 	float nodeDiameter;
 	int gridSizeX, gridSizeY;
+
+	// public LineControl lineControl;
 
 	void Awake() {
 		nodeDiameter = nodeRadius*2;
@@ -73,7 +78,17 @@ public class Grid : MonoBehaviour {
 				Gizmos.color = (n.walkable)?Color.white:Color.red;
 				if (path != null)
 					if (path.Contains(n))
+					{
 						Gizmos.color = Color.black;
+					}
+
+				if (waypoints != null && waypoints.Contains(n))
+				{
+					Gizmos.color = Color.blue; // Waypoints override other colors
+					// Instantiate(waypointObj, new Vector3(n.transform.position.x, 0, yPoint), Quaternion.identity)
+					}
+						// Gizmos.color = Color.black;
+
 				Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter-.1f));
 			}
 		}

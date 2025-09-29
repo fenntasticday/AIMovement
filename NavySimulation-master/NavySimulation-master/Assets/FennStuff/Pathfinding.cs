@@ -6,6 +6,11 @@ public class Pathfinding : MonoBehaviour {
 
 	public Transform seeker, target;
 	Grid grid;
+	public LineControl lineControl;
+	public GameObject waypointPrefab;
+
+	
+private List<Transform> waypointObjects = new List<Transform>();
 
 	void Awake() {
 		grid = GetComponent<Grid> ();
@@ -58,18 +63,55 @@ public class Pathfinding : MonoBehaviour {
 		}
 	}
 
-	void RetracePath(Node startNode, Node endNode) {
+	void RetracePath(Node startNode, Node endNode)
+	{
 		List<Node> path = new List<Node>();
+		List<Node> waypoints = new List<Node>();
 		Node currentNode = endNode;
 
 		while (currentNode != startNode) {
 			path.Add(currentNode);
 			currentNode = currentNode.parent;
 		}
+		path.Add(startNode); // Include start node
 		path.Reverse();
 
-		grid.path = path;
+		// Detect waypoints (include start and end)
+		List<Node> fullWaypoints = new List<Node> { startNode }; // Start point
 
+		Vector2 oldDirection = Vector2.zero;
+		for (int i = 1; i < path.Count; i++) {
+			int dx = path[i - 1].gridX - path[i].gridX;
+			int dy = path[i - 1].gridY - path[i].gridY;
+			Vector2 newDirection = new Vector2(dx, dy);
+			if (newDirection != oldDirection) {
+				fullWaypoints.Add(path[i - 1]); // Add the turning point
+			}
+			oldDirection = newDirection;
+		}
+		fullWaypoints.Add(endNode); // End point
+
+		// Save path and waypoints to Grid (for Gizmos)
+		grid.path = path;
+		grid.waypoints = fullWaypoints;
+
+		// Destroy old waypoint markers
+		foreach (var obj in waypointObjects) {
+			if (obj != null) Destroy(obj.gameObject);
+		}
+		waypointObjects.Clear();
+
+		// Instantiate new waypoint markers (start + waypoints + end)
+		foreach (var wp in fullWaypoints) {
+			GameObject wpObj = Instantiate(waypointPrefab, wp.worldPosition, Quaternion.identity);
+			waypointObjects.Add(wpObj.transform);
+		}
+
+		// Draw line using LineControl
+		if (lineControl != null) {
+			lineControl.waypoints = waypointObjects.ToArray();
+			lineControl.drawLine();
+		}
 	}
 
 	int GetDistance(Node nodeA, Node nodeB) {
