@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872692, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731195, g: 0.3807401, b: 0.35872737, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -360,7 +360,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 30000
+  mass: 3000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -516,7 +516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &15953520
 Transform:
   m_ObjectHideFlags: 0
@@ -957,7 +957,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 4000
+  mass: 3000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -1816,7 +1816,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 1000
+  mass: 2000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -2053,7 +2053,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255886191}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d45137f092d3bb04c973db10d2055c64, type: 3}
   m_Name: 
@@ -2281,7 +2281,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 1000
+  mass: 2000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -2449,7 +2449,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 1000
+  mass: 2000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -2878,7 +2878,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 1000
+  mass: 2000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -3466,7 +3466,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 30000
+  mass: 3000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -4105,7 +4105,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 4000
+  mass: 3000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -4273,7 +4273,7 @@ MonoBehaviour:
   alwaysAdd: 0
   isPotentialFieldsMovement: 1
   potentialDistanceThreshold: 1000
-  attractionCoefficient: 20000
+  attractionCoefficient: 1500
   attractiveExponent: -1
   repulsiveCoefficient: 1000
   repulsiveExponent: -2
@@ -4815,7 +4815,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 1000
+  mass: 2000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -5344,7 +5344,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 4000
+  mass: 3000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -5595,7 +5595,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 4000
+  mass: 3000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -6489,7 +6489,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 1000
+  mass: 2000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -6869,7 +6869,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 4000
+  mass: 3000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -7522,7 +7522,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 1000
+  mass: 2000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -9403,7 +9403,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 1000
+  mass: 2000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -9733,7 +9733,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 1000
+  mass: 2000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -10526,7 +10526,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 4000
+  mass: 3000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -11530,7 +11530,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 30000
+  mass: 3000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}
@@ -11910,7 +11910,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 1000
+  mass: 2000
   entityType: 9
   cameraRig: {fileID: 259131544}
   selectionCircle: {fileID: 1914674038}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872692, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731195, g: 0.3807401, b: 0.35872737, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -466,7 +466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &15953520
 Transform:
   m_ObjectHideFlags: 0
@@ -8673,7 +8673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1673913200
 Transform:
   m_ObjectHideFlags: 0
@@ -9789,6 +9789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pfShips: {fileID: 492593614}
+  pfOfficeEntity: {fileID: 0}
   isSelecting: 0
   startMousePosition: {x: 0, y: 0, z: 0}
   SelectionBoxPanel: {fileID: 194918368}
@@ -10880,6 +10881,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   pfShips: {fileID: 492593614}
+  pfOfficeE: {fileID: 0}
 --- !u!1 &2057178664
 GameObject:
   m_ObjectHideFlags: 0

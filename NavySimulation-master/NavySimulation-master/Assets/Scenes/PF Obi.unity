@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872692, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731195, g: 0.3807401, b: 0.35872737, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5694,7 +5694,7 @@ MonoBehaviour:
   turnRate: 0
   maxSpeed: 0
   minSpeed: 0
-  mass: 400
+  mass: 600
   entityType: 9
   cameraRig: {fileID: 1592559993}
   selectionCircle: {fileID: 56670347}
@@ -6552,7 +6552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a370599dbf501314082571d0d4f977b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pfShips: {fileID: 1746277059}
+  pfShips: {fileID: 0}
   pfOfficeEntity: {fileID: 0}
   isSelecting: 0
   startMousePosition: {x: 0, y: 0, z: 0}

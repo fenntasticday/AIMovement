@@ -10,9 +10,9 @@ public class PathfindingOfficeEntity : MonoBehaviour {
 	public LineControl lineControl;
 	public GameObject waypointPrefab;
     public AIMgr aIMgr;
+    public bool noWayLine = false;
 
-	
-private List<Transform> waypointObjects = new List<Transform>();
+    private List<Transform> waypointObjects = new List<Transform>();
 
 	void Awake()
     {
@@ -86,13 +86,16 @@ private List<Transform> waypointObjects = new List<Transform>();
         // Instantiate waypoint markers
         foreach (var wp in fullWaypoints)
         {
-            GameObject wpObj = Instantiate(waypointPrefab, new Vector3(wp.worldPosition.x, 15, wp.worldPosition.z), Quaternion.identity);
-            waypointObjects.Add(wpObj.transform);
+            if (noWayLine == false)
+            {
+                GameObject wpObj = Instantiate(waypointPrefab, new Vector3(wp.worldPosition.x, 15, wp.worldPosition.z), Quaternion.identity);
+                waypointObjects.Add(wpObj.transform);
+            }
             aIMgr.HandleMove(SelectionMgr.inst.selectedEntities, new Vector3(wp.worldPosition.x, 0, wp.worldPosition.z));
         }
 
         // Draw line
-        if (lineControl != null)
+        if (lineControl != null && noWayLine == false)
         {
             lineControl.waypoints = waypointObjects.ToArray();
             lineControl.drawLine();
@@ -201,4 +204,7 @@ private List<Transform> waypointObjects = new List<Transform>();
 
         return (dstX > dstY) ? 14 * dstY + 10 * (dstX - dstY) : 14 * dstX + 10 * (dstY - dstX);
 	}
+
+
+
 }

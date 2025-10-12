@@ -48,7 +48,7 @@ public class EnvironmentSetup : MonoBehaviour
 
         for (int i = 0; i < generationAmount; i++)
         {
-            int xPoint = Random.Range(0, 650);
+            int xPoint = Random.Range(0, 625);
             int yPoint = Random.Range(0, 350);
             int isNeg = Random.Range(0, 4);
             //GameObject newObj = new GameObject("declared");
