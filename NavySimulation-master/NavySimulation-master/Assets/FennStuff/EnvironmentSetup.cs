@@ -44,11 +44,12 @@ public class EnvironmentSetup : MonoBehaviour
         for (int i = 0; i < generationAmount; i++)
         {
             int xPoint = Random.Range(0, 650);
-            int yPoint = Random.Range(0, 650);
+            int yPoint = Random.Range(0, 350);
             int isNeg = Random.Range(0, 4);
             //GameObject newObj = new GameObject("declared");
             if (isNeg == 0)
             {
+                
                 if (isSquare)
                     newObj = Instantiate(square, new Vector3(xPoint, 0, yPoint), Quaternion.identity);
                 if(isSquare == false)
@@ -73,8 +74,12 @@ public class EnvironmentSetup : MonoBehaviour
 
             if (isNeg == 3)
             {
+                // if (yPoint >= 300)
+                // {
+                //     yPoint = Random.Range(0, 300);
+                // }
                 if (isSquare)
-                    newObj = Instantiate(square, new Vector3(-xPoint, 0, -yPoint), Quaternion.identity);
+                        newObj = Instantiate(square, new Vector3(-xPoint, 0, -yPoint), Quaternion.identity);
                 if (isSquare == false)
                     newObj = Instantiate(cylinder, new Vector3(-xPoint, 0, -yPoint), Quaternion.identity);
             }

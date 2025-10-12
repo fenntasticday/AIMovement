@@ -15,10 +15,13 @@ public class Move : Command
     public override void Init()
     {
         //Debug.Log("MoveInit:\tMoving to: " + movePosition);
-        line = LineMgr.inst.CreateMoveLine(entity.position, movePosition);
-        line.gameObject.SetActive(false);
-        potentialLine = LineMgr.inst.CreatePotentialLine(entity.position);
-        line.gameObject.SetActive(true);
+        if (potentialLine != null && line != null)
+        {
+            line = LineMgr.inst.CreateMoveLine(entity.position, movePosition);
+            line.gameObject.SetActive(false);
+            potentialLine = LineMgr.inst.CreatePotentialLine(entity.position);
+            line.gameObject.SetActive(true);
+        }
     }
 
     public override void Tick()
@@ -31,7 +34,8 @@ public class Move : Command
 
         entity.desiredHeading = dhds.dh;
         entity.desiredSpeed = dhds.ds;
-        line.SetPosition(1, movePosition);
+        if (potentialLine != null && line != null)
+            line.SetPosition(1, movePosition);
     }
 
     public Vector3 diff = Vector3.positiveInfinity;
@@ -94,7 +98,10 @@ public class Move : Command
     public override void Stop()
     {
         entity.desiredSpeed = 0;
-        LineMgr.inst.DestroyLR(line);
-        LineMgr.inst.DestroyLR(potentialLine);
+        if (potentialLine != null && line != null)
+        {
+            LineMgr.inst.DestroyLR(line);
+            LineMgr.inst.DestroyLR(potentialLine);
+        }
     }
 }

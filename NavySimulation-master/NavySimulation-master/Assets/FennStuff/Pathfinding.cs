@@ -103,7 +103,7 @@ private List<Transform> waypointObjects = new List<Transform>();
 
 		// Instantiate new waypoint markers (start + waypoints + end)
 		foreach (var wp in fullWaypoints) {
-			GameObject wpObj = Instantiate(waypointPrefab, wp.worldPosition, Quaternion.identity);
+			GameObject wpObj = Instantiate(waypointPrefab, new Vector3 (wp.worldPosition.x, 15, wp.worldPosition.z), Quaternion.identity);
 			waypointObjects.Add(wpObj.transform);
 		}
 

@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class SelectionMgr : MonoBehaviour
 {
     public static SelectionMgr inst;
+    public PathfindingShips pfShips;
     private void Awake()
     {
         inst = this;
@@ -151,13 +152,18 @@ public class SelectionMgr : MonoBehaviour
 
     public void SelectEntity(Entity ent, bool shouldClearSelection = true)
     {
-        if (ent != null && (selectedEntityIndex = EntityMgr.inst.entities.FindIndex(x => (x == ent))) >= 0) {
-            if (shouldClearSelection) 
+        if (ent != null && (selectedEntityIndex = EntityMgr.inst.entities.FindIndex(x => (x == ent))) >= 0)
+        {
+            if (shouldClearSelection)
                 ClearSelection();
 
             selectedEntity = ent;
             selectedEntity.isSelected = true;
             selectedEntities.Add(ent);
+            if (pfShips != null)
+            {
+                pfShips.seeker = ent.transform;
+            }
         }
     }
 

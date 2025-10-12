@@ -6,6 +6,8 @@ public class GameMgr : MonoBehaviour
 {
     public static GameMgr inst;
     private GameInputs input;
+    public int spawnCount;
+    public int maxX, maxZ, minX, minZ;
     private void Awake()
     {
         inst = this;
@@ -17,11 +19,20 @@ public class GameMgr : MonoBehaviour
     void Start()
     {
         Vector3 position = Vector3.zero;
-        foreach(GameObject go in EntityMgr.inst.entityPrefabs) {
-            Entity ent = EntityMgr.inst.CreateEntity(go.GetComponent<Entity>().entityType, position, Vector3.zero);
+        for (int i = 0; i < spawnCount; i++)
+        {
+            int positionX = Random.Range(minX, maxX);
+            int positionZ = Random.Range(minZ, maxZ);
+            int randomEntity = Random.Range(0, 8);
+            Entity ent = EntityMgr.inst.CreateEntity(EntityMgr.inst.entityPrefabs[randomEntity].GetComponent<Entity>().entityType, new Vector3(positionX, 0, positionZ), Vector3.zero);
             ent.isSelected = false;
-            position.x += 200;
         }
+        // foreach (GameObject go in EntityMgr.inst.entityPrefabs)
+        //     {
+        //         Entity ent = EntityMgr.inst.CreateEntity(go.GetComponent<Entity>().entityType, position, Vector3.zero);
+        //         ent.isSelected = false;
+        //         position.x += 200;
+        //     }
     }
 
     public Vector3 position;

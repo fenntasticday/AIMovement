@@ -5,6 +5,7 @@ using UnityEngine;
 public class Selector : MonoBehaviour
 {
     public Entity entity;
+    // public PathfindingShips pfShips;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,11 @@ public class Selector : MonoBehaviour
     private void OnMouseDown()
     {
         //if (Input.GetMouseButtonDown(0)) {
-            SelectionMgr.inst.SelectEntity(entity);
+        SelectionMgr.inst.SelectEntity(entity);
+        // if (pfShips != null)
+        // {
+        //     pfShips.seeker = entity.transform;
+        // }
         //}
     }
 

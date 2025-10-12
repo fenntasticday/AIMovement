@@ -7,6 +7,8 @@ public class AIMgr : MonoBehaviour
 {
     public static AIMgr inst;
     private GameInputs input;
+    public bool NoRightClick = false;
+    public bool alwaysAdd = true;
     private void Awake()
     {
         inst = this;
@@ -37,23 +39,34 @@ public class AIMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1)) {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, float.MaxValue, layerMask)) {
-                //Debug.DrawLine(Camera.main.transform.position, hit.point, Color.yellow, 2); //for debugging
-                Vector3 pos = hit.point;
-                pos.y = 0;
-                Entity ent = FindClosestEntInRadius(pos, rClickRadiusSq);
-                if (ent == null) {
-                    HandleMove(SelectionMgr.inst.selectedEntities, pos);
-                } else {
-                    if (interceptDown)
-                        HandleIntercept(SelectionMgr.inst.selectedEntities, ent);
+        if (NoRightClick == false)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, float.MaxValue, layerMask))
+                {
+                    //Debug.DrawLine(Camera.main.transform.position, hit.point, Color.yellow, 2); //for debugging
+                    Vector3 pos = hit.point;
+                    pos.y = 0;
+                    Entity ent = FindClosestEntInRadius(pos, rClickRadiusSq);
+                    if (ent == null)
+                    {
+                        HandleMove(SelectionMgr.inst.selectedEntities, pos);
+                    }
                     else
-                        HandleFollow(SelectionMgr.inst.selectedEntities, ent);
+                    {
+                        if (interceptDown)
+                            HandleIntercept(SelectionMgr.inst.selectedEntities, ent);
+                        else
+                            HandleFollow(SelectionMgr.inst.selectedEntities, ent);
+                    }
                 }
-            } else {
-                //Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward) * 1000, Color.white, 2);
+                else
+                {
+                    //Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward) * 1000, Color.white, 2);
+                }
             }
+
         }
     }
 
@@ -68,7 +81,7 @@ public class AIMgr : MonoBehaviour
 
     void AddOrSet(Command c, UnitAI uai)
     {
-        if (addDown)
+        if (addDown || alwaysAdd == true)
             uai.AddCommand(c);
         else
             uai.SetCommand(c);

@@ -6,9 +6,10 @@ public class GoalPos : MonoBehaviour
 {
     public Camera mainCamera;
     public LayerMask selectableLayers;
+    public PathfindingShips pfShips;
     // public LayerMask layerMask;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         
     }
@@ -22,6 +23,8 @@ public class GoalPos : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, selectableLayers))
             {
                 gameObject.transform.position = raycastHit.point;
+                if (pfShips != null)
+                { pfShips.target = gameObject.transform; }
             }
             // Vector3 mousePos = Input.mousePosition;
             // {
