@@ -144,7 +144,7 @@ MonoBehaviour:
   heading: 0
   desiredHeading: 0
   acceleration: 10
-  turnRate: 20
+  turnRate: 50
   maxSpeed: 30
   minSpeed: 0
   mass: 40

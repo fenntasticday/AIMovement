@@ -7,6 +7,7 @@ public class GoalPos : MonoBehaviour
     public Camera mainCamera;
     public LayerMask selectableLayers;
     public PathfindingShips pfShips;
+    public PathfindingOfficeEntity pfOfficeE;
     // public LayerMask layerMask;
     // Start is called before the first frame update
     void Awake()
@@ -25,6 +26,8 @@ public class GoalPos : MonoBehaviour
                 gameObject.transform.position = raycastHit.point;
                 if (pfShips != null)
                 { pfShips.target = gameObject.transform; }
+                if (pfOfficeE != null)
+                { pfOfficeE.target = gameObject.transform; }
             }
             // Vector3 mousePos = Input.mousePosition;
             // {

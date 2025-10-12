@@ -4809,6 +4809,8 @@ MonoBehaviour:
   entityType: 9
   cameraRig: {fileID: 1592559993}
   selectionCircle: {fileID: 56670347}
+  NONeedSelection: 1
+  Unselectable: 1
 --- !u!1 &1664575454
 GameObject:
   m_ObjectHideFlags: 0
@@ -5030,7 +5032,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1746277056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5662,6 +5664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pfShips: {fileID: 1746277059}
+  pfOfficeEntity: {fileID: 0}
   isSelecting: 0
   startMousePosition: {x: 0, y: 0, z: 0}
   SelectionBoxPanel: {fileID: 194918368}
@@ -6403,6 +6406,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   pfShips: {fileID: 1746277059}
+  pfOfficeE: {fileID: 0}
 --- !u!1 &2069220213
 GameObject:
   m_ObjectHideFlags: 0

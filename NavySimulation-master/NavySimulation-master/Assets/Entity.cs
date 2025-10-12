@@ -44,13 +44,18 @@ public class Entity : MonoBehaviour
 
     public GameObject cameraRig;
     public GameObject selectionCircle;
+    public bool NONeedSelection = false;
+    public bool Unselectable = false;
 
     // Start is called before the first frame update
     void Start()
     {
         isSelected = false;
-        cameraRig = transform.Find("CameraRig").gameObject;
-        selectionCircle = transform.Find("Decorations").Find("SelectionCylinder").gameObject;
+        if (NONeedSelection == false)
+        {
+            cameraRig = transform.Find("CameraRig").gameObject;
+            selectionCircle = transform.Find("Decorations").Find("SelectionCylinder").gameObject;
+        }
     }
 
     // Update is called once per frame

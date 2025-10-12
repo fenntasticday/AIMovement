@@ -9,6 +9,7 @@ public class SelectionMgr : MonoBehaviour
 {
     public static SelectionMgr inst;
     public PathfindingShips pfShips;
+    public PathfindingOfficeEntity pfOfficeEntity;
     private void Awake()
     {
         inst = this;
@@ -159,10 +160,17 @@ public class SelectionMgr : MonoBehaviour
 
             selectedEntity = ent;
             selectedEntity.isSelected = true;
-            selectedEntities.Add(ent);
-            if (pfShips != null)
+            if (ent.Unselectable == false)
             {
-                pfShips.seeker = ent.transform;
+                selectedEntities.Add(ent);
+                if (pfShips != null)
+                {
+                    pfShips.seeker = ent.transform;
+                }
+                if (pfOfficeEntity != null)
+                {
+                    pfOfficeEntity.seeker = ent.transform;
+                }
             }
         }
     }

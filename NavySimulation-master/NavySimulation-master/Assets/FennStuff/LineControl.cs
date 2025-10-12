@@ -17,7 +17,7 @@ public class LineControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // drawLine();
     }
     public void drawLine()
     {
