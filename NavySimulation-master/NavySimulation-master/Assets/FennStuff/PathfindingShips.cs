@@ -21,8 +21,11 @@ private List<Transform> waypointObjects = new List<Transform>();
 	{
 		if (seeker != null && target != null)
 		{
+			UnitAI seekerAi = seeker.GetComponent<UnitAI> ();
+			seekerAi.moves.Clear();
 			FindPath(seeker.position, target.position);
 			seeker = null;
+			target = null;
 		}
 	}
 

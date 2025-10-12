@@ -79,7 +79,7 @@ public class AIMgr : MonoBehaviour
         }
     }
 
-    void AddOrSet(Command c, UnitAI uai)
+    public void AddOrSet(Command c, UnitAI uai)
     {
         if (addDown || alwaysAdd == true)
             uai.AddCommand(c);

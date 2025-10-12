@@ -12,6 +12,8 @@ public class EnvironmentSetup : MonoBehaviour
     public bool isSquare = false;
     public int generationPoint = 0;
     public int generationAmount;
+    public EntityMgr entityMgr;
+    public DistanceMgr distanceMgr;
 
     public Grid aGrid;
     // Start is called before the first frame update
@@ -29,7 +31,7 @@ public class EnvironmentSetup : MonoBehaviour
     public void RandomizeBoard()
     {
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("toDes");
-        if(gameObjects != null)
+        if (gameObjects != null)
         {
             foreach (GameObject go in gameObjects)
             {
@@ -49,10 +51,10 @@ public class EnvironmentSetup : MonoBehaviour
             //GameObject newObj = new GameObject("declared");
             if (isNeg == 0)
             {
-                
+
                 if (isSquare)
                     newObj = Instantiate(square, new Vector3(xPoint, 0, yPoint), Quaternion.identity);
-                if(isSquare == false)
+                if (isSquare == false)
                     newObj = Instantiate(cylinder, new Vector3(xPoint, 0, yPoint), Quaternion.identity);
             }
 
@@ -79,12 +81,18 @@ public class EnvironmentSetup : MonoBehaviour
                 //     yPoint = Random.Range(0, 300);
                 // }
                 if (isSquare)
-                        newObj = Instantiate(square, new Vector3(-xPoint, 0, -yPoint), Quaternion.identity);
+                    newObj = Instantiate(square, new Vector3(-xPoint, 0, -yPoint), Quaternion.identity);
                 if (isSquare == false)
                     newObj = Instantiate(cylinder, new Vector3(-xPoint, 0, -yPoint), Quaternion.identity);
             }
 
             newObj.gameObject.tag = "toDes";
+            if (entityMgr != null)
+            {
+                Entity entityObj = newObj.GetComponent<Entity>();
+                entityObj.position = newObj.transform.position;
+                entityMgr.entities.Add(entityObj);
+            }
             //GameObject des = GameObject.Find("declared");
             //Destroy(des);
         }
@@ -93,6 +101,7 @@ public class EnvironmentSetup : MonoBehaviour
         Destroy(des);
 
         StartCoroutine(DelayedGridCreation());
+        DistanceMgr.inst.Initialize();
 
 
         //GameObject[] gameObjects2 = GameObject.FindGameObjectsWithTag("toDes");
@@ -115,5 +124,6 @@ public class EnvironmentSetup : MonoBehaviour
 
         // Now recreate the grid
         aGrid.CreateGrid();
+        // distanceMgr.Initialize();
     }
 }

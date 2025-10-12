@@ -142,7 +142,7 @@ public class DistanceMgr : MonoBehaviour
     }
 
     public List<Potential> selectedEntityPotentials; // For debugging
-    void UpdatePotentials()
+    public void UpdatePotentials()
     {
         Potential p1, p2;
         Entity ent1, ent2;

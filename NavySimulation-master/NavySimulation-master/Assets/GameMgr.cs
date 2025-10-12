@@ -24,7 +24,7 @@ public class GameMgr : MonoBehaviour
             int positionX = Random.Range(minX, maxX);
             int positionZ = Random.Range(minZ, maxZ);
             int randomEntity = Random.Range(0, 8);
-            Entity ent = EntityMgr.inst.CreateEntity(EntityMgr.inst.entityPrefabs[randomEntity].GetComponent<Entity>().entityType, new Vector3(positionX, 0, positionZ), Vector3.zero);
+            Entity ent = EntityMgr.inst.CreateEntity(EntityMgr.inst.entityPrefabs[0].GetComponent<Entity>().entityType, new Vector3(positionX, 0, positionZ), Vector3.zero);
             ent.isSelected = false;
         }
         // foreach (GameObject go in EntityMgr.inst.entityPrefabs)

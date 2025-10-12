@@ -382,6 +382,8 @@ MonoBehaviour:
   isSquare: 0
   generationPoint: 0
   generationAmount: 20
+  entityMgr: {fileID: 0}
+  distanceMgr: {fileID: 0}
   aGrid: {fileID: 1746277057}
 --- !u!1 &52003000
 GameObject:
@@ -1576,7 +1578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movableEntitiesRoot: {fileID: 382953079}
   entityPrefabs:
-  - {fileID: 2020023502598012821, guid: 4eadb14a1eece2a44a7ae893943f3d9f, type: 3}
+  - {fileID: 857272126595392923, guid: 2c4513be36911cf43af492fcdb5d3351, type: 3}
   - {fileID: 4175921536809093428, guid: 195ecb91b20a27e4c837b4a6d3c601f4, type: 3}
   - {fileID: 8269003061167357734, guid: f946d7fa0cf80f741b8c5a0cce39d24f, type: 3}
   - {fileID: 8516214366006661342, guid: 8b6d19bb645cb934fa859c6b2ba600ff, type: 3}
@@ -5061,7 +5063,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   gridWorldSize: {x: 2500, y: 2500}
-  nodeRadius: 25
+  nodeRadius: 50
 --- !u!4 &1746277058
 Transform:
   m_ObjectHideFlags: 0
