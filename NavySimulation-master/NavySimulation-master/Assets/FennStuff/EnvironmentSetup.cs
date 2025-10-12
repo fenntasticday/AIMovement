@@ -25,7 +25,10 @@ public class EnvironmentSetup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown("c"))
+        {
+            RandomizeBoard();
+        }
     }
 
     public void RandomizeBoard()
@@ -101,6 +104,7 @@ public class EnvironmentSetup : MonoBehaviour
         Destroy(des);
 
         StartCoroutine(DelayedGridCreation());
+        if(distanceMgr!= null)
         DistanceMgr.inst.Initialize();
 
 
