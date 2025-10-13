@@ -5,6 +5,7 @@ using UnityEngine;
 public class LineControl : MonoBehaviour
 {
     LineRenderer lR;
+    //public bool inactive = false;
 
     [HideInInspector]
     public Transform[] waypoints;
@@ -27,4 +28,5 @@ public class LineControl : MonoBehaviour
             lR.SetPosition(i, waypoints[i].position);
         }
     }
+
 }

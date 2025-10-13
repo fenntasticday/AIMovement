@@ -27,6 +27,7 @@ public class SelectionMgr : MonoBehaviour
         input.Entities.Cursor.canceled += OnCursorCanceled;
         input.Entities.ClearSelection.performed += OnClearSelectionPerformed;
         input.Entities.ClearSelection.canceled += OnClearSelectionCanceled;
+        selectedEntities.Clear();
     }
     //----------------------------------------------------------------------------------------------------
     public bool isSelecting = false;
@@ -37,6 +38,7 @@ public class SelectionMgr : MonoBehaviour
     private bool start = false;
     public int numTouches;
     bool lShiftDown = false;
+    public bool NoGroupSelect = false;
 
     // Update is called once per frame
     void Update()
@@ -117,6 +119,8 @@ public class SelectionMgr : MonoBehaviour
     public Vector3 wp2;
     public void SelectEntitiesInBox(Vector3 start, Vector3 end)
     {
+        if (NoGroupSelect == true) 
+            return;
         wp1 = Camera.main.ScreenToViewportPoint(start);
         wp2 = Camera.main.ScreenToViewportPoint(end);
         Vector3 min = Vector3.Min(wp1, wp2);

@@ -383,8 +383,17 @@ MonoBehaviour:
   generationPoint: 0
   generationAmount: 20
   entityMgr: {fileID: 0}
+  secondSituation: {fileID: 392106491}
   distanceMgr: {fileID: 0}
+  isPF: 0
+  movableEntitiesRoot: {fileID: 0}
+  todestroy: {fileID: 1142393662}
+  lineMgr: {fileID: 1673913201}
+  HoldPos: {x: 1000, y: 0, z: 0}
   aGrid: {fileID: 1746277057}
+  gameMgr: {fileID: 1129782062}
+  seeker: {fileID: 0}
+  goal: {fileID: 0}
 --- !u!1 &52003000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,7 +1216,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: be69209794559e240a6423dfbc061163, type: 2}
+  - {fileID: 2100000, guid: b136a313ce58f4e4bb27d762b3baf6be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2666,7 +2675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7176471, g: 0.8509804, b: 0.84705883, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3718,9 +3727,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnCount: 5
-  maxX: -575
+  maxX: -630
   maxZ: -200
-  minX: -830
+  minX: -900
   minZ: -450
   position: {x: -100, y: 0, z: -700}
   spread: 50
@@ -4840,7 +4849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1455108879
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5416,7 +5425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Randomize
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5425,8 +5434,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5443,8 +5452,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -6061,8 +6070,8 @@ MonoBehaviour:
   lineControl: {fileID: 741379365}
   waypointPrefab: {fileID: 1394177316}
   aIMgr: {fileID: 639876783}
-  noWayLine: 0
-  HoldPos: {x: 0, y: 0, z: 0}
+  noWayLine: 1
+  HoldPos: {x: 10000, y: 0, z: 0}
 --- !u!1 &1766729324
 GameObject:
   m_ObjectHideFlags: 0
@@ -6250,6 +6259,7 @@ GameObject:
   - component: {fileID: 1793428089}
   - component: {fileID: 1793428088}
   - component: {fileID: 1793428087}
+  - component: {fileID: 1793428090}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -6321,9 +6331,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 15953521}
-        m_TargetAssemblyTypeName: EnvironmentSetup, Assembly-CSharp
-        m_MethodName: RandomizeBoard
+      - m_Target: {fileID: 1793428090}
+        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
+        m_MethodName: SceneLoad
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6353,8 +6363,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b402017adf989684e89c7e87baa9ef97, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6371,6 +6381,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793428085}
   m_CullTransparentMesh: 1
+--- !u!114 &1793428090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793428085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5dd693763065114db09b62152b33092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNum: 0
 --- !u!1 &1800728339
 GameObject:
   m_ObjectHideFlags: 0
@@ -6635,6 +6658,7 @@ MonoBehaviour:
   SelectionBoxPanel: {fileID: 194918368}
   UICanvas: {fileID: 1491763689}
   numTouches: 0
+  NoGroupSelect: 1
   selectionSensitivity: 25
   anchorMin: {x: 0, y: 1}
   anchorMax: {x: 0, y: 1}
@@ -6997,8 +7021,8 @@ Transform:
   m_GameObject: {fileID: 1961238432}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -722, y: 5, z: -337}
-  m_LocalScale: {x: 25, y: 25, z: 25}
+  m_LocalPosition: {x: -772, y: 5, z: -337}
+  m_LocalScale: {x: 28, y: 28, z: 28}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -7713,7 +7737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7168921, g: 0.8490566, b: 0.8450513, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

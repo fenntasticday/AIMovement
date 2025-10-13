@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameMgr : MonoBehaviour
 {
@@ -23,8 +24,10 @@ public class GameMgr : MonoBehaviour
         {
             int positionX = Random.Range(minX, maxX);
             int positionZ = Random.Range(minZ, maxZ);
-            int randomEntity = Random.Range(0, 8);
-            Entity ent = EntityMgr.inst.CreateEntity(EntityMgr.inst.entityPrefabs[0].GetComponent<Entity>().entityType, new Vector3(positionX, 0, positionZ), Vector3.zero);
+            int positionY = Random.Range(0, 360);
+            Entity ent = EntityMgr.inst.CreateEntity(EntityMgr.inst.entityPrefabs[0].GetComponent<Entity>().entityType, new Vector3(positionX, 0, positionZ), new Vector3(0, positionY, 0));
+            ent.heading = positionY;
+            ent.desiredHeading = positionY;
             ent.isSelected = false;
         }
         // foreach (GameObject go in EntityMgr.inst.entityPrefabs)
@@ -53,6 +56,21 @@ public class GameMgr : MonoBehaviour
                 position.z = initZ;
             }
             DistanceMgr.inst.Initialize();
+        }
+    }
+
+    public void reinstate()
+    {
+        Vector3 position = Vector3.zero;
+        for (int i = 0; i < spawnCount; i++)
+        {
+            int positionX = Random.Range(minX, maxX);
+            int positionZ = Random.Range(minZ, maxZ);
+            int positionY = Random.Range(0, 360);
+            Entity ent = EntityMgr.inst.CreateEntity(EntityMgr.inst.entityPrefabs[0].GetComponent<Entity>().entityType, new Vector3(positionX, 0, positionZ), new Vector3(0, positionY, 0));
+            ent.heading = positionY;
+            ent.desiredHeading = positionY;
+            ent.isSelected = false;
         }
     }
 }

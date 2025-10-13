@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Json;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 using UnityEngine.XR;
 
 public class EnvironmentSetup : MonoBehaviour
@@ -13,9 +14,20 @@ public class EnvironmentSetup : MonoBehaviour
     public int generationPoint = 0;
     public int generationAmount;
     public EntityMgr entityMgr;
+    public EntityMgr secondSituation;
     public DistanceMgr distanceMgr;
+    public bool isPF = false;
+    public GameObject movableEntitiesRoot;
+    public GameObject todestroy;
+    public LineMgr lineMgr;
+
+    public  Vector3 HoldPos = new Vector3(1000, 0, 0);
 
     public Grid aGrid;
+    public GameMgr gameMgr;
+
+    public GameObject seeker;
+    public GameObject goal;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +39,57 @@ public class EnvironmentSetup : MonoBehaviour
     {
         if(Input.GetKeyDown("c"))
         {
+            if(isPF == true)
+            {
+                Debug.Log("This is working");
+                //entityMgr.entities.Clear();
+                //foreach (Entity ent in movableEntitiesRoot.GetComponentsInChildren<Entity>())
+                //{
+                //    entityMgr.entities.Add(ent);
+                //}
+                if (entityMgr != null)
+                {
+                    Debug.Log("This is working");
+                    entityMgr.entities.Clear();
+                    foreach (var line in lineMgr.lines)
+                    {
+                        Destroy(line.gameObject);
+                    }
+
+                    lineMgr.lines.Clear();
+
+
+                    foreach (Transform child in todestroy.transform)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                    gameMgr.reinstate();
+                }
+            }
+
+            if (isPF != true)
+            {
+                if (secondSituation != null)
+                {
+                    Debug.Log("This is working");
+                    secondSituation.entities.Clear();
+                    foreach (var line in lineMgr.lines)
+                    {
+                        Destroy(line.gameObject);
+                    }
+
+                    lineMgr.lines.Clear();
+                
+
+                    foreach (Transform child in todestroy.transform)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                    gameMgr.reinstate();
+                }
+
+            }
+
             RandomizeBoard();
         }
     }
@@ -102,6 +165,13 @@ public class EnvironmentSetup : MonoBehaviour
 
         GameObject des = GameObject.Find("declared");
         Destroy(des);
+        //int counter = generationAmount;
+        //while   (entityMgr.entities.Count > 1)      
+        //    {
+        //    entityMgr.entities.RemoveAt(counter);
+        //    counter--;
+        //    Debug.Log("Current");
+        //}
 
         StartCoroutine(DelayedGridCreation());
         if(distanceMgr!= null)
