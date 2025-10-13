@@ -11,12 +11,16 @@ public class PathfindingShips : MonoBehaviour {
 	public AIMgr aIMgr;
 	public bool noWayLine = false;
 
-	
-private List<Transform> waypointObjects = new List<Transform>();
+    public Vector3 HoldPos;
+
+
+    private List<Transform> waypointObjects = new List<Transform>();
 
 	void Awake() {
 		grid = GetComponent<Grid> ();
-	}
+        GameObject goalInit = GameObject.Find("Goal");
+        goalInit.transform.position = HoldPos;
+    }
 
 	void Update()
 	{

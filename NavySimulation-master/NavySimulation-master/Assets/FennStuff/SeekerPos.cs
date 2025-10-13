@@ -6,6 +6,7 @@ public class SeekerPos : MonoBehaviour
 {
     public Camera mainCamera;
     public LayerMask selectableLayers;
+    public bool setPoint = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class SeekerPos : MonoBehaviour
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, selectableLayers))
             {
+                setPoint = true;
                 gameObject.transform.position = raycastHit.point;
             }
         }

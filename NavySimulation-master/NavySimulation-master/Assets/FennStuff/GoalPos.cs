@@ -8,6 +8,7 @@ public class GoalPos : MonoBehaviour
     public LayerMask selectableLayers;
     public PathfindingShips pfShips;
     public PathfindingOfficeEntity pfOfficeE;
+    public bool setPoint = false;
     // public LayerMask layerMask;
     // Start is called before the first frame update
     void Awake()
@@ -23,11 +24,17 @@ public class GoalPos : MonoBehaviour
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, selectableLayers))
             {
+                setPoint = true;
+
                 gameObject.transform.position = raycastHit.point;
                 if (pfShips != null)
                 { pfShips.target = gameObject.transform; }
                 if (pfOfficeE != null)
                 { pfOfficeE.target = gameObject.transform; }
+
+      
+
+                
             }
             // Vector3 mousePos = Input.mousePosition;
             // {

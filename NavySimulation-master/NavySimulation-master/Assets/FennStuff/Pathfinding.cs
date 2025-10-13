@@ -9,15 +9,26 @@ public class Pathfinding : MonoBehaviour {
 	public LineControl lineControl;
 	public GameObject waypointPrefab;
 
-	
-private List<Transform> waypointObjects = new List<Transform>();
+	public Vector3 HoldPos;
+
+	public SeekerPos seekerCheck;
+    public GoalPos goalCheck;
+
+
+    private List<Transform> waypointObjects = new List<Transform>();
 
 	void Awake() {
 		grid = GetComponent<Grid> ();
-	}
+		seeker.position = HoldPos;
+		target.position = HoldPos;
+    }
 
 	void Update() {
-		FindPath (seeker.position, target.position);
+		if (seekerCheck.setPoint == true && goalCheck.setPoint == true)
+		{
+			FindPath(seeker.position, target.position);
+			//seekerCheck
+		}
 	}
 
 	public void FindPath(Vector3 startPos, Vector3 targetPos) {
@@ -112,7 +123,10 @@ private List<Transform> waypointObjects = new List<Transform>();
 			lineControl.waypoints = waypointObjects.ToArray();
 			lineControl.drawLine();
 		}
-	}
+
+        //seeker.gameObject.SetActive(false);
+        //target.gameObject.SetActive(false);
+    }
 
 	int GetDistance(Node nodeA, Node nodeB) {
 		int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);

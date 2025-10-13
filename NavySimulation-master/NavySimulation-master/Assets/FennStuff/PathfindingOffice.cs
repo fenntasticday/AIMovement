@@ -9,18 +9,25 @@ public class PathfindingOffice : MonoBehaviour {
 	Grid grid;
 	public LineControl lineControl;
 	public GameObject waypointPrefab;
+    public Vector3 HoldPos;
 
-	
-private List<Transform> waypointObjects = new List<Transform>();
+    public SeekerPos seekerCheck;
+    public GoalPos goalCheck;
+
+
+    private List<Transform> waypointObjects = new List<Transform>();
 
 	void Awake()
     {
         grid = GetComponent<Grid>();
+        seeker.position = HoldPos;
+        target.position = HoldPos;
     }
 
     void Update()
     {
-        FindFullPath(seeker.position, target.position);
+        if (seekerCheck.setPoint == true && goalCheck.setPoint == true)
+            FindFullPath(seeker.position, target.position);
     }
 
     /// <summary>
