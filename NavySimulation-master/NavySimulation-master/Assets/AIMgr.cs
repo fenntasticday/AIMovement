@@ -53,13 +53,13 @@ public class AIMgr : MonoBehaviour
                     {
                         HandleMove(SelectionMgr.inst.selectedEntities, pos);
                     }
-                    else
-                    {
-                        if (interceptDown)
-                            HandleIntercept(SelectionMgr.inst.selectedEntities, ent);
-                        else
-                            HandleFollow(SelectionMgr.inst.selectedEntities, ent);
-                    }
+                    //else
+                    //{
+                    //    if (interceptDown)
+                    //        HandleIntercept(SelectionMgr.inst.selectedEntities, ent);
+                    //    else
+                    //        HandleFollow(SelectionMgr.inst.selectedEntities, ent);
+                    //}
                 }
                 else
                 {

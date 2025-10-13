@@ -19,6 +19,7 @@ public class Move : Command
         //{
             line = LineMgr.inst.CreateMoveLine(entity.position, movePosition);
             line.gameObject.SetActive(false);
+        if(AIMgr.inst.isPotentialFieldsMovement)
             potentialLine = LineMgr.inst.CreatePotentialLine(entity.position);
             line.gameObject.SetActive(true);
         //}

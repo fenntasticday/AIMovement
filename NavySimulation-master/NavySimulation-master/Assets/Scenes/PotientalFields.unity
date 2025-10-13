@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872692, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731195, g: 0.3807401, b: 0.35872737, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -382,7 +382,18 @@ MonoBehaviour:
   isSquare: 0
   generationPoint: 0
   generationAmount: 20
+  entityMgr: {fileID: 0}
+  secondSituation: {fileID: 0}
+  distanceMgr: {fileID: 0}
+  isPF: 0
+  movableEntitiesRoot: {fileID: 0}
+  todestroy: {fileID: 0}
+  lineMgr: {fileID: 0}
+  HoldPos: {x: 1000, y: 0, z: 0}
   aGrid: {fileID: 1746277057}
+  gameMgr: {fileID: 0}
+  seeker: {fileID: 0}
+  goal: {fileID: 0}
 --- !u!1 &52003000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1192,134 @@ Transform:
   - {fileID: 1576919500}
   m_Father: {fileID: 1991371577}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &375618459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 375618461}
+  - component: {fileID: 375618460}
+  m_Layer: 0
+  m_Name: AudioMgr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &375618460
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375618459}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 882336ac94a66a9419322c244a935a27, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &375618461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375618459}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -245.6555, y: -369.08936, z: 0.7049978}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &382953079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,6 +1858,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065ce964008046c4496f4bcaeaf31a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoRightClick: 0
+  alwaysAdd: 1
   isPotentialFieldsMovement: 1
   potentialDistanceThreshold: 1000
   attractionCoefficient: 20000
@@ -2186,6 +2327,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 534669904}
+  selectableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  setPoint: 0
 --- !u!1 &872982532
 GameObject:
   m_ObjectHideFlags: 0
@@ -2788,6 +2933,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f307a68b0cd5d24da3eb78422925657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnCount: 0
+  maxX: 0
+  maxZ: 0
+  minX: 0
+  minZ: 0
   position: {x: -100, y: 0, z: -700}
   spread: 50
   colNum: 10
@@ -4564,6 +4714,9 @@ MonoBehaviour:
   target: {fileID: 2054495000}
   lineControl: {fileID: 741379365}
   waypointPrefab: {fileID: 1394177316}
+  HoldPos: {x: 0, y: 0, z: 0}
+  seekerCheck: {fileID: 0}
+  goalCheck: {fileID: 0}
 --- !u!114 &1746277057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5141,11 +5294,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a370599dbf501314082571d0d4f977b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pfShips: {fileID: 0}
+  pfOfficeEntity: {fileID: 0}
   isSelecting: 0
   startMousePosition: {x: 0, y: 0, z: 0}
   SelectionBoxPanel: {fileID: 194918368}
   UICanvas: {fileID: 1491763689}
   numTouches: 0
+  NoGroupSelect: 0
   selectionSensitivity: 25
   anchorMin: {x: 0, y: 1}
   anchorMax: {x: 0, y: 1}
@@ -5720,6 +5876,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 534669904}
+  selectableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  pfShips: {fileID: 0}
+  pfOfficeE: {fileID: 0}
+  setPoint: 0
 --- !u!1 &2069220213
 GameObject:
   m_ObjectHideFlags: 0
@@ -6539,3 +6701,4 @@ SceneRoots:
   - {fileID: 2054495000}
   - {fileID: 741379367}
   - {fileID: 1394177320}
+  - {fileID: 375618461}
