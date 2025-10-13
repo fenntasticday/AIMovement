@@ -13283,7 +13283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f307a68b0cd5d24da3eb78422925657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCount: 5
+  spawnCount: 10
   maxX: -1100
   maxZ: 330
   minX: -1280
@@ -21716,7 +21716,7 @@ MonoBehaviour:
   - {fileID: 364632236}
   - {fileID: 31239794}
   - {fileID: 59571882}
-  - {fileID: 59571882}
+  - {fileID: 1295981028}
   lineControl: {fileID: 741379365}
   waypointPrefab: {fileID: 1394177316}
   aIMgr: {fileID: 639876783}

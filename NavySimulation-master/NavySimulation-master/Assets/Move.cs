@@ -99,10 +99,20 @@ public class Move : Command
     public override void Stop()
     {
         entity.desiredSpeed = 0;
-        //if (potentialLine != null && line != null)
-        //{
+        if (potentialLine != null && line != null)
+        {
             LineMgr.inst.DestroyLR(line);
             LineMgr.inst.DestroyLR(potentialLine);
-        //}
+        }
+
+        if (potentialLine == null && line != null)
+        {
+            LineMgr.inst.DestroyLR(line);
+        }
+
+        if (potentialLine != null && line == null)
+        {
+            LineMgr.inst.DestroyLR(potentialLine);
+        }
     }
 }
